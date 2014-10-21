@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="ASCII"?>
+<LDP-parallel:Processus
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:LDP-parallel="platform:/resource/projet-idm/metamodels/LDP-parallel.ecore">
+  <sequences
+      name="intro"
+      premiereActivite="//@sequences.0/@activites.0">
+    <activites
+        name="intro"
+        description="Intro g&#xe9;n&#xe9;rale"
+        suivante="//@sequences.0/@activites.1"/>
+    <activites
+        name="cous_meta"
+        description="Cours m&#xe9;ta-mod&#xe9;lisation"
+        precedente="//@sequences.0/@activites.0"/>
+  </sequences>
+  <sequences
+      name="tp_meta"
+      premiereActivite="//@sequences.1/@activites.0">
+    <activites
+        name="tp_meta"
+        description="TP m&#xe9;ta-mod&#xe9;lisation"/>
+  </sequences>
+  <sequences
+      name="sysml"
+      premiereActivite="//@sequences.2/@activites.0">
+    <activites
+        name="cours_sysml"
+        description="Cours SysML"
+        suivante="//@sequences.2/@activites.1"/>
+    <activites
+        name="td_sysml"
+        description="TD SysML"
+        suivante="//@sequences.2/@activites.2"
+        precedente="//@sequences.2/@activites.0"/>
+    <activites
+        name="tp_sysml"
+        description="TP SysML"
+        precedente="//@sequences.2/@activites.1"/>
+  </sequences>
+  <sequences
+      name="transfo"
+      premiereActivite="//@sequences.3/@activites.0">
+    <activites
+        name="tp_kermeta"
+        description="TP Kermeta"
+        suivante="//@sequences.3/@activites.1"/>
+    <activites
+        name="cours_transfo"
+        description="Cours Transformations"
+        suivante="//@sequences.3/@activites.2"
+        precedente="//@sequences.3/@activites.0"/>
+    <activites
+        name="tp_transfo"
+        description="TP Transformation"
+        precedente="//@sequences.3/@activites.1"/>
+  </sequences>
+  <sequences
+      name="xtext"
+      premiereActivite="//@sequences.4/@activites.0">
+    <activites
+        name="cours_xtext"
+        description="Cours XText"
+        suivante="//@sequences.4/@activites.1"/>
+    <activites
+        name="tp_xtext"
+        description="TP XText"
+        precedente="//@sequences.4/@activites.0"/>
+  </sequences>
+  <sequences
+      name="projet"
+      premiereActivite="//@sequences.5/@activites.0">
+    <activites
+        name="projet"
+        description="Projet"/>
+  </sequences>
+  <portes xsi:type="LDP-parallel:Fourche"
+      pred="//@sequences.0"
+      succ="//@sequences.1 //@sequences.2"/>
+  <portes xsi:type="LDP-parallel:Fourche"
+      pred="//@sequences.1"
+      succ="//@sequences.3 //@sequences.4"/>
+  <portes xsi:type="LDP-parallel:Jonction"
+      pred="//@sequences.2 //@sequences.4 //@sequences.3"
+      succ="//@sequences.5"/>
+  <debut reference="//@sequences.0"/>
+  <fin reference="//@sequences.5"/>
+</LDP-parallel:Processus>
